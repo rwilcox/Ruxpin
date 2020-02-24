@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "RyanWilcox 2/23/2020 21:21",
+	"super" : "Object",
+	"category" : "Ruxpin",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "RuxpinOutputPresenterAmazonMyClippingsFormat",
+	"type" : "normal"
+}
