@@ -1,0 +1,21 @@
+{
+	"commentStamp" : "RyanWilcox 2/23/2020 21:36",
+	"super" : "Object",
+	"category" : "Ruxpin",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"title",
+		"author",
+		"url",
+		"chapterTitle",
+		"kind",
+		"referenceLocation",
+		"text",
+		"date",
+		"referencePageNumber"
+	],
+	"name" : "RuxpinKnowledgeEntry",
+	"type" : "normal"
+}

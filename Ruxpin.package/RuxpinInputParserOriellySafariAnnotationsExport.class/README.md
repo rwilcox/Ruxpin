@@ -1,0 +1,1 @@
+This class parses the - CSV - Safari Annotation exports format and translates it to an Array of  RuxpinKnowledgeEntries

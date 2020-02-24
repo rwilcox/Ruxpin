@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "RyanWilcox 2/23/2020 21:30",
+	"super" : "Object",
+	"category" : "Ruxpin",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"inputStream"
+	],
+	"name" : "RuxpinInputParserOriellySafariAnnotationsExport",
+	"type" : "normal"
+}
