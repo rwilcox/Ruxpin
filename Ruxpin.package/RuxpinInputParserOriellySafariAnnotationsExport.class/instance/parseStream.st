@@ -1,9 +1,10 @@
 parsing
 parseStream
-	| csvOutput |
+	| csvOutput|
 	csvOutput := (NeoCSVReader on: inputStream) upToEnd .
 	
-	^ csvOutput collect: [ :inputLine | | n txt kind|
+	^ (csvOutput allButFirst) collect: [ :inputLine | | n txt kind|
+		
 		n := RuxpinKnowledgeEntry new. 
 		n title: (inputLine at: 1);
 		author: (inputLine at: 2);
@@ -12,7 +13,7 @@ parseStream
 		referenceLocation: (inputLine at: 7);
 		"Safari only gives us a URL to the location, not page number or even byte or whatever"
 		
-		date: (inputLine at: 4).
+		date: (self parseStringToDate: (inputLine at: 4)).
 		
 		(inputLine at: 9) ifNotNil: [ kind := 'note'. txt := (inputLine at: 9). ] ifNil: [ kind := 'highlite'. txt := (inputLine at: 8) ].
 		
