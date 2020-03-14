@@ -1,3 +1,3 @@
 accessing
 referencePageNumber
-	^ referencePageNumber
+	^ (referencePageNumber ifNil: 0 ifNotNil: referencePageNumber ). 
