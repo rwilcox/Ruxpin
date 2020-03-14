@@ -10,7 +10,7 @@ formatOneKnowledgeEntry: entry
 	startStr := '{title} ({author})
 - Your {kind} on page {pageNumber} | Location {location} | Added on {date}
 
-{text}
+---Highlight--- {text} ---URL Location--- {locationURL}
 ==========
 '
 		format:
@@ -18,7 +18,10 @@ formatOneKnowledgeEntry: entry
 			(#author -> entry author).
 			#kind -> ourKind.
 			#pageNumber -> entry referencePageNumber.
-			#location -> entry referenceLocation.
+			#location -> entry referencePageNumber.  "is looking for a number, not URL"
 			#date -> formattedDateString.
 			#text -> entry text.
+			#locationURL -> entry url.
 			  } asDictionary.
+			
+		^ startStr. 
