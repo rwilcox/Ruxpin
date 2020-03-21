@@ -6,7 +6,7 @@ Internal Representation and Key Implementation Points.
 	author:		<String> author name
 	chapterTitle:		<String> chapter name
 	date:		<Date>
-	kind:		<String> currently: highlight or note
+	kind:		<String> currently: highlight,  note, or highlight+note
 	referenceLocation:		<String>  could be a URL, could be a page number
   	referencePageNumber:	<Number> if availiable, printed page number
 	text:		<String> freeform text with either authors or my comments

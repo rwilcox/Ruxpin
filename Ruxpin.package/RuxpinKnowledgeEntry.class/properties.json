@@ -1,5 +1,5 @@
 {
-	"commentStamp" : "RyanWilcox 2/23/2020 21:36",
+	"commentStamp" : "RyanWilcox 3/21/2020 15:07",
 	"super" : "Object",
 	"category" : "Ruxpin",
 	"classinstvars" : [ ],
@@ -14,7 +14,8 @@
 		"referenceLocation",
 		"text",
 		"date",
-		"referencePageNumber"
+		"referencePageNumber",
+		"personalNote"
 	],
 	"name" : "RuxpinKnowledgeEntry",
 	"type" : "normal"

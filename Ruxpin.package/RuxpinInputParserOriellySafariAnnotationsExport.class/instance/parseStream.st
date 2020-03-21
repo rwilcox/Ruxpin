@@ -15,7 +15,16 @@ parseStream
 		
 		date: (self parseStringToDate: (inputLine at: 4)).
 		
-		(inputLine at: 9) ifNotNil: [ kind := 'note'. txt := (inputLine at: 9). ] ifNil: [ kind := 'highlite'. txt := (inputLine at: 8) ].
+		
+		(inputLine at: 9) ifNotNil: [
+			"9 is the personal note, 8 is the highlighted text. Support no highlighted text or highlighted text + note"
+			(inputLine at: 8) 
+				ifNil: [ kind := 'note'. txt := (inputLine at: 9). ]
+				ifNotNil: [ 
+					kind := 'note+highlight'.
+					txt := (inputLine at: 8).
+					n personalNote: (inputLine at: 9) ] ] 
+		ifNil: [ kind := 'highlight'. txt := (inputLine at: 8) ].
 		
 		n kind: kind;
 		text: txt.
