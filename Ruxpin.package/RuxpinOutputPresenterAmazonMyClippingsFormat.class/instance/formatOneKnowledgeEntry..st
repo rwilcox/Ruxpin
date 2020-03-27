@@ -7,18 +7,20 @@ formatOneKnowledgeEntry: entry
 		personalNotePresentation := '---Note-- ', (entry personalNote).
 	
 	].
-	ourKind := entry kind = 'highlight'
+	"ourKind := entry kind = 'highlight'
 		ifTrue: [ 'Highlight' ]
-		ifFalse: [ 'Note' ].
-		
+		ifFalse: [ 'Note' ]."
+		" ^^^ gosnippets ONLY supports Highlights, not Notes. RPW 03/27/2020"
+	ourKind := 'Highlight'.
+	
 	formattedDateString := self formatDateForAmazonClipping: entry date.
 		
+	"format it per Amazon's format... and inside that shove some metadata, because Amazon's My Clipping's format really isn't meant for this.... "
 	startStr := '{title} ({author})
 - Your {kind} on page {pageNumber} | Location {location} | Added on {date}
 
 ---Highlight--- {text} {personalNoteSection} ---URL Location--- {locationURL}
-==========
-'
+=========='
 		format:
 			{ (#title -> entry title).
 			(#author -> entry author).
