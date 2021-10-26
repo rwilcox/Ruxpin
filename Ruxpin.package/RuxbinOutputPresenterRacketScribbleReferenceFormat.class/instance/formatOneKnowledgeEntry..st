@@ -38,6 +38,6 @@ inEntry personalNote ifNotNil: [
 
 stepTwoString := prefixString , ('#:title "{title}"
   #:author  "{author}"
-  #:page-number {page}]') format: { (#title -> (inEntry author)). (#author -> (inEntry author)). (#page -> (inEntry referencePageNumber asString  )) } asDictionary .
+  #:page-number {page}]') format: { (#title -> (inEntry title)). (#author -> (inEntry author)). (#page -> (inEntry referencePageNumber asString  )) } asDictionary .
 
 ^ (stepTwoString , '{', bodyText , '}' ).
