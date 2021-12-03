@@ -1,10 +1,10 @@
-as yet unclassified
-loadFromFile
-  	<script: 'self loadFromFile inspect'>
+examples
+exampleLoadFromFile
+
 	"comment stating purpose of class-side message"
 	"scope: class-variables  &  class-instance-variables"	
 			
 	| utils |
 	utils := RuxpinUIUtils new.
 	
-	^ RuxbinRepository loadFromStream: (utils chooseFileAndMakeFileStream).
+	utils sendRepoToPlayground: (RuxbinRepository loadFromStream: (utils chooseFileAndMakeFileStream)).
