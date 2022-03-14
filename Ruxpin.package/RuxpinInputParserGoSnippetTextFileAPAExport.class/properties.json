@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "RyanWilcox 3/13/2022 11:19",
+	"super" : "Object",
+	"category" : "Ruxpin",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"inputStream"
+	],
+	"name" : "RuxpinInputParserGoSnippetTextFileAPAExport",
+	"type" : "normal"
+}
