@@ -3,12 +3,13 @@ formatOneKnowledgeEntry: inEntry
 	"comment stating purpose of instance-side message"
 	"scope: class-variables  &  instance-variables"	
 			
-	| prefixString stepTwoString bodyText|
+	| prefixString stepTwoString bodyText formatString formatDictionary|
 	"Example of required output: 
 @quote-highlight[
 	#:title       ""Ask Your Developer""
 	#:author      ""Lawson""
         #:is-book?     't
+   #:url ""url""
 	#:page-number 39 ]{
  text goes here
 }
@@ -26,18 +27,29 @@ POTIFICATING
 
 bodyText := inEntry text.
 
-inEntry personalNote ifNotNil: [
+(inEntry hasPersonalNote) ifTrue: [
 	prefixString := ('@quote-note[
 		#:original-highlight "{highlight}"	
 	' format:  { (#highlight -> (inEntry text)) } asDictionary ).
 	
 	bodyText := inEntry personalNote.
-	] ifNil: [ 
+	] ifFalse: [ 
 		prefixString := '@quote-highlight['
 	] .
 
-stepTwoString := prefixString , ('#:title "{title}"
+formatString := '#:title "{title}"
   #:author  "{author}"
-  #:page-number {page}]') format: { (#title -> (inEntry title)). (#author -> (inEntry author)). (#page -> (inEntry referencePageNumber asString  )) } asDictionary .
+  #:page-number {page}'.
+
+formatDictionary := { (#title -> (inEntry title)). (#author -> (inEntry author)). (#page -> (inEntry referencePageNumber asString  )) } asDictionary.
+
+inEntry hasUrl ifTrue: [ 
+  formatString := ( formatString, '
+  #url  "{url}"' ).
+
+  formatDictionary at: #url put: (inEntry url).  
+].
+
+stepTwoString := (prefixString , formatString, ']')  format: formatDictionary .
 
 ^ (stepTwoString , '{', bodyText , '}' ).
