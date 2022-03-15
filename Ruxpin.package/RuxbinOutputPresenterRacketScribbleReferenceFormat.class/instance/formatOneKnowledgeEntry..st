@@ -45,7 +45,7 @@ formatDictionary := { (#title -> (inEntry title)). (#author -> (inEntry author))
 
 inEntry hasUrl ifTrue: [ 
   formatString := ( formatString, '
-  #url  "{url}"' ).
+  #:url  "{url}"' ).
 
   formatDictionary at: #url put: (inEntry url).  
 ].
